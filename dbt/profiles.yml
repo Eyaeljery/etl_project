@@ -1,0 +1,13 @@
+hubspot_elt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('DBT_HOST', 'postgres') }}"      # ← en Docker : 'postgres'
+      user: "{{ env_var('DBT_USER', 'elt') }}"
+      password: "{{ env_var('DBT_PASSWORD', 'eltpassword') }}"
+      port: 5432
+      dbname: "{{ env_var('DBT_DBNAME', 'warehouse') }}"
+      schema: "{{ env_var('DBT_SCHEMA', 'marts') }}"     # ← ton compose met DBT_SCHEMA=marts
+      threads: 4
+

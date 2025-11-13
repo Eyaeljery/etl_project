@@ -1,0 +1,16 @@
+with meetings as (
+    select
+        meeting_id,
+        contacts_json
+    from "warehouse"."marts_staging"."stg_engagements_meetings"
+),
+
+exploded as (
+    select
+        m.meeting_id,
+        (c)::text::bigint as contact_id
+    from meetings m
+    cross join lateral jsonb_array_elements_text(m.contacts_json) as c
+)
+
+select * from exploded

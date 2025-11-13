@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: airbyte_internal_src_test         # <- NOUVEAU nom de source
+    database: "{{ target.database }}"
+    schema: airbyte_internal
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables:
+      - name: raw_hubspot_raw__stream_companies   # mets exactement ce que tu vois dans pgAdmin

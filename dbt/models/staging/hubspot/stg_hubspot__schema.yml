@@ -1,0 +1,107 @@
+version: 2
+
+models:
+  - name: stg_deals
+    columns:
+      - name: deal_id
+        tests: [not_null, unique]
+  - name: stg_deal_companies
+    columns:
+      - name: deal_id
+        tests: [not_null]
+      - name: company_id
+        tests: [not_null]
+  - name: stg_deal_line_items
+    columns:
+      - name: deal_id
+        tests: [not_null]
+      - name: line_item_id
+        tests: [not_null]
+  - name: stg_line_items
+    columns:
+      - name: line_item_id
+        tests: [not_null, unique]
+  - name: stg_products
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+  - name: stg_form_submissions
+    columns:
+      - name: submission_id
+        tests: [not_null, unique]
+      - name: form_id
+        tests: [not_null]
+  - name: stg_forms
+    columns:
+      - name: form_id
+        tests: [not_null, unique]
+  - name: stg_engagements_meetings
+    columns:
+      - name: meeting_id
+        tests: [not_null, unique]
+  - name: stg_meeting_contacts
+    columns:
+      - name: meeting_id
+        tests: [not_null]
+      - name: contact_id
+        tests: [not_null]
+  - name: stg_meeting_companies
+    columns:
+      - name: meeting_id
+        tests: [not_null]
+      - name: company_id
+        tests: [not_null]
+  - name: stg_engagements_notes
+    columns:
+      - name: note_id
+        tests: [not_null, unique]
+  - name: stg_note_tickets
+    columns:
+      - name: note_id
+        tests: [not_null]
+      - name: ticket_id
+        tests: [not_null]
+  - name: stg_engagements_tasks
+    columns:
+      - name: task_id
+        tests: [not_null, unique]
+  - name: stg_tickets
+    columns:
+      - name: ticket_id
+        tests: [not_null, unique]
+  - name: stg_ticket_contacts
+    columns:
+      - name: ticket_id
+        tests: [not_null]
+      - name: contact_id
+        tests: [not_null]
+  - name: stg_ticket_pipelines
+    columns:
+      - name: pipeline_id
+        tests: [not_null]
+      - name: pipeline_stage_id
+        tests: [not_null]
+  - name: stg_goals
+    columns:
+      - name: goal_id
+        tests: [not_null, unique]
+  - name: stg_owner
+    columns:
+      - name: owner_id
+        tests: [not_null, unique]
+  - name: stg_owners_archived
+    columns:
+      - name: owner_id
+        tests: [not_null]
+  - name: stg_owners_all
+    columns:
+      - name: owner_id
+        tests: [not_null]
+  - name: stg_contacts
+    columns:
+      - name: contact_id
+        tests: [not_null, unique]
+  - name: stg_companies
+    columns:
+      - name: company_id
+        tests: [not_null, unique]

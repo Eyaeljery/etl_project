@@ -1,0 +1,37 @@
+name: "hubspot_dbt"
+version: "1.0"
+config-version: 2
+
+# Doit correspondre au nom du profil ci-dessus
+profile: "hubspot_elt"
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+analysis-paths: ["analysis"]
+seed-paths: ["seeds"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  hubspot_dbt:
+    +materialized: view
+    staging:
+      +schema: staging
+      +tags: ["staging"]
+    intermediate:
+      +schema: intermediate
+      +tags: ["intermediate"]
+    marts:
+      +schema: marts
+      +tags: ["marts"]
+    kpi:
+      +schema: kpi
+      +tags: ["kpi"]
+
+seeds:
+  hubspot_dbt:
+    +schema: seeds
+

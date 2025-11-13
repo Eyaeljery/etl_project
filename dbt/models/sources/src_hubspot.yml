@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: hubspot
+    database: "{{ target.database }}"
+    schema: airbyte_internal       # <- TRÈS IMPORTANT
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables:
+      - name: raw_hubspot_raw__stream_contacts
+      - name: raw_hubspot_raw__stream_contacts_property_history
+      - name: raw_hubspot_raw__stream_deals
+      - name: raw_hubspot_raw__stream_engagements_calls
+      - name: raw__stream_engagements_emails
+      - name: raw_hubspot_raw__stream_engagements_meetings
+      - name: raw_hubspot_raw__stream_engagements_notes
+      - name: raw_hubspot_raw__stream_engagements_tasks
+      - name: raw_hubspot_raw__stream_engagements_emails
+      - name: raw_hubspot_raw__stream_goals
+      - name: raw_hubspot_raw__stream_owners
+
+      # Ajoute ici les tables que tu vois dans airbyte_internal,
+      # AVEC LE NOM EXACT trouvé à l'étape A :
+      - name: raw_hubspot_raw__stream_companies
+      - name: raw_hubspot_raw__stream_products
+      - name: raw_hubspot_raw__stream_line_items
+      - name: raw_hubspot_raw__stream_tickets
+      - name: raw_hubspot_raw__stream_ticket_pipelines
+      - name: raw_hubspot_raw__stream_forms
+      - name: raw_hubspot_raw__stream_form_submissions_airbyte_tmp
+      - name: raw_hubspot_raw__stream_owners_archived
+      - name: raw_hubspot_raw__stream_deal_pipelines
+      
